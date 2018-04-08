@@ -102,7 +102,8 @@ var encode = function() {
 
     toastr.success("Image created. Click to download!", "success!");
     output.src = canvas.toDataURL();
-    document.getElementById('finalimage').style.display = 'block';
+    $("#finish").modal();
+
 
 
 };
