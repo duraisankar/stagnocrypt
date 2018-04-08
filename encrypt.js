@@ -1,3 +1,5 @@
+document.getElementById('encryptupload').style.display = 'none';
+document.getElementById('finalimage').style.display = 'none';
 
 window.onload = function() {
 
@@ -21,6 +23,8 @@ var importImage = function(e) {
     var reader = new FileReader();
 
     reader.onload = function(event) {
+        document.getElementById('encryptupload').style.display = 'block';
+
 
         document.getElementById('preview').style.display = 'block';
         document.getElementById('preview').src = event.target.result;
@@ -98,6 +102,8 @@ var encode = function() {
 
     toastr.success("Image created. Click to download!", "success!");
     output.src = canvas.toDataURL();
+    document.getElementById('finalimage').style.display = 'block';
+
 
 };
 

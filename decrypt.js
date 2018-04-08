@@ -1,3 +1,5 @@
+document.getElementById('reveal').style.display = 'none';
+document.getElementById('decryptupload').style.display = 'none';
 
 window.onload = function() {
 
@@ -23,6 +25,8 @@ var importImage = function(e) {
     reader.onload = function(event) {
 
         document.getElementById('preview').style.display = 'block';
+        document.getElementById('decryptupload').style.display = 'block';
+
         document.getElementById('preview').src = event.target.result;
         document.getElementById('message').value = '';
         document.getElementById('password').value = '';
