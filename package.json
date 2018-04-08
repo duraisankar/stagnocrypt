@@ -1,0 +1,22 @@
+{
+  "name": "Electron",
+  "productName": "Project APP",
+  "version": "1.0.0",
+  "description": "testing electron app ",
+  "main": "index.js",
+  "author": "tharun",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^1.7.9",
+    "electron-packager": "^8.7.2",
+    "electron-winstaller": "^2.6.3",
+    "webpack": "^4.5.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron ."
+  },
+  "dependencies": {
+    "electron": "^1.8.4"
+  }
+}
