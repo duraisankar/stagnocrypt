@@ -2,13 +2,18 @@
 window.onload = function() {
 
     var input = document.getElementById('file');
-    input.addEventListener('change', importImage);
-
+    if(input) {
+        input.addEventListener('change', importImage);
+    }
     var encodeButton = document.getElementById('encode');
-    encodeButton.addEventListener('click', encode);
+    if(encodeButton) {
+        encodeButton.addEventListener('click', encode);
+    }
 
     var decodeButton = document.getElementById('decode');
-    decodeButton.addEventListener('click', decode);
+    if(decodeButton) {
+        decodeButton.addEventListener('click', decode);
+    }
 };
 
 
@@ -19,7 +24,7 @@ var importImage = function(e) {
     var reader = new FileReader();
 
     reader.onload = function(event) {
-        
+
         document.getElementById('preview').style.display = 'block';
         document.getElementById('preview').src = event.target.result;
         document.getElementById('message').value = '';
@@ -50,13 +55,13 @@ var encode = function() {
     var canvas = document.getElementById('canvas');
     var ctx = canvas.getContext('2d');
 
-    
+
     if (password.length > 0) {
         message = sjcl.encrypt(password, message);
     } else {
         message = JSON.stringify({'text': message});
     }
-    
+
     var pixelCount = ctx.canvas.width * ctx.canvas.height;
     if ((message.length + 1) * 16 > pixelCount * 4 * 0.75) {
         alert('Message is too big for the image.');
@@ -68,12 +73,12 @@ var encode = function() {
         return;
     }
 
-    
+
     var imgData = ctx.getImageData(0, 0, ctx.canvas.width, ctx.canvas.height);
     encodeMessage(imgData.data, sjcl.hash.sha256.hash(password), message);
     ctx.putImageData(imgData, 0, 0);
 
-    
+
     alert('Done! When the image appears, save and share it with someone.');
     output.src = canvas.toDataURL();
 
@@ -129,21 +134,21 @@ var decode = function() {
 };
 
 var getBit = function(number, location) {
-   return ((number >> location) & 1);
+    return ((number >> location) & 1);
 };
 
 // sets the bit in 'location' to 'bit' (either a 1 or 0)
 var setBit = function(number, location, bit) {
-   return (number & ~(1 << location)) | (bit << location);
+    return (number & ~(1 << location)) | (bit << location);
 };
 
 // returns an array of 1s and 0s for a 2-byte number
 var getBitsFromNumber = function(number) {
-   var bits = [];
-   for (var i = 0; i < 16; i++) {
-       bits.push(getBit(number, i));
-   }
-   return bits;
+    var bits = [];
+    for (var i = 0; i < 16; i++) {
+        bits.push(getBit(number, i));
+    }
+    return bits;
 };
 
 // returns the next 2-byte number
@@ -203,7 +208,7 @@ var encodeMessage = function(colors, hash, message) {
         colors[loc] = setBit(colors[loc], 0, messageBits[pos]);
 
         // set the alpha value in this pixel to 255
-       while ((loc + 1) % 4 !== 0) {
+        while ((loc + 1) % 4 !== 0) {
             loc++;
         }
         colors[loc] = 255;

@@ -87,9 +87,10 @@
                          class="m-header-menu m-aside-header-menu-mobile m-aside-header-menu-mobile--offcanvas  m-header-menu--skin-light m-header-menu--submenu-skin-light m-aside-header-menu-mobile--skin-dark m-aside-header-menu-mobile--submenu-skin-dark ">
 
                         <ul class="m-menu__nav  m-menu__nav--submenu-arrow ">
-                            <li class="m-menu__item  m-menu__item--submenu m-menu__item--rel"  aria-haspopup="true">
+                            <li class="m-menu__item  m-menu__item--submenu m-menu__item--rel" aria-haspopup="true">
                                 <h3>Encrypt Image</h3>
-                            </li>		</ul>
+                            </li>
+                        </ul>
 
                     </div>
                     <!-- END: Horizontal Menu -->                                <!-- BEGIN: Topbar -->
@@ -168,90 +169,106 @@
             <!-- END: Subheader -->
             <div class="m-content">
 
+
                 <div class="row">
 
-<div class="col-md-6">                <div class="m-portlet">
 
-        <div class="m-portlet__body">
-            <div class="form-group m-form__group row">
-                <label class="col-form-label col-lg-3 col-sm-12">Choose ur file</label>
-                <div class="col-md-9 col-sm-12">
-                    <div class="form-group m-form__group">
-                        <label for="exampleInputEmail1">File Browser</label>
-                        <div></div>
-                        <div class="custom-file">
-                            <input type="file" class="custom-file-input" id="file">
-                            <label class="custom-file-label" for="customFile">Choose file</label>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <img id='preview' class='preview hide' />
-
-            <div id="choose">
-                <div class="form-group m-form__group row">
-                    <label class="col-form-label col-lg-3 col-sm-12">Password</label>
-                    <div class=" col-md-9 col-sm-12">
-                        <div class="form-group m-form__group">
-                            <div></div>
-                            <input type="password" class="form-control m-input" id="password"
-                                   placeholder="Password">
-
-                        </div>
-                    </div>
-                </div>
-
-                <div class="form-group m-form__group row">
-                    <label class="col-form-label col-lg-3 col-sm-12">Message</label>
-                    <div class=" col-md-9 col-sm-12">
-                        <div class="form-group m-form__group">
-                            <div></div>
-                            <textarea class="form-control m-input" id="message" rows="3"></textarea>
-
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
-        <div class="m-portlet__foot m-portlet__foot--fit m--margin-top-40">
-            <div class="m-form__actions">
-                <div class="col-lg-4 m--align-right">
-
-                    <button class="btn btn-primary btn-lg m-btn  m-btn m-btn--icon">
-									<span>
-										<i class="fa fa-archive"></i>
-										<span>Primary</span>
-									</span>
-                    </button>
-                </div>
-            </div>
-
-        </div>
-
-
-
-
-</div>
-</div>
                     <div class="col-md-6">
-
                         <div class="m-portlet">
 
-                                <div class="m-portlet__body">
+                            <div class="m-portlet__body">
 
-</div>
+                                <div class="form-group m-form__group row">
+                                    <label class="col-form-label col-lg-3 col-sm-12">Choose your image</label>
+                                    <div class="col-md-9 col-sm-12">
+                                        <div class="form-group m-form__group">
+                                            <div class="custom-file">
+                                                <input type="file" class="custom-file-input" id="file">
+                                                <label class="custom-file-label">Choose file</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <img id='preview' class='preview hide'/>
+                                <div id='choose'>
+
+
+                                    <div class="form-group m-form__group row">
+                                        <label class="col-form-label col-lg-3 col-sm-12">Message</label>
+                                        <div class=" col-md-9 col-sm-12">
+                                            <div class="form-group m-form__group">
+                                                <div></div>
+                                                <textarea class="form-control m-input" id="message" rows="3"></textarea>
+
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group m-form__group row">
+                                        <label class="col-form-label col-lg-3 col-sm-12">Password</label>
+                                        <div class=" col-md-9 col-sm-12">
+                                            <div class="form-group m-form__group">
+                                                <div></div>
+                                                <input type="password" class="form-control m-input" id="password"
+                                                       placeholder="Password (optional)">
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <button id="encode" type="button" class="btn m-btn m-btn--gradient-from-primary m-btn--wide m-btn--gradient-to-info">Encode</button>
+
+
+
+                                    <input type='password' id='password2' class='password'
+                                           placeholder='Password' style="display: none;"/>
+                                    <button id='decode' class='button'
+                                            style="display: none;">
+                                        Reveal message
+                                    </button>
+
+
+                                </div>
+                            </div>
 
                         </div>
                     </div>
 
+                    <div class="col-md-6">
+                        <div class="m-portlet">
+
+                            <div class="m-portlet__body">
+                                <div id='reveal' class='section dark hide' style="display: none;">
+                                    <div class='step'>Hidden message</div>
+                                    <div id='messageDecoded' class='sectionbody'></div>
+                                </div>
+                                <canvas id='canvas' style="display: none;"></canvas>
+                                <div id="image_holder" style="width: 200px; height: 200px; border-color: transparent;">
+                                    <img id='output' style="width: inherit; height: inherit;"/>
+                                </div>
+                                <br>
+
+
+                                <a href="#" onclick="prepHref(this)" download class="btn btn-success m-btn m-btn--icon m-btn--wide">
+									<span>
+										<span>Download</span>
+                                        						<i class="la la-download"></i>
+
+									</span>
+                                </a>
+
+
+
+                            </div>
+
+                        </div>
+                    </div>
+
+
+
+
                 </div>
-
-
-
             </div>
         </div>
     </div>
@@ -284,7 +301,13 @@
 <!-- end::Scroll Top -->            <!-- begin::Quick Nav -->
 <!-- begin::Quick Nav -->
 <!--begin::Base Scripts -->
-
+<script type="text/javascript">
+    function prepHref(linkElement) {
+        var myDiv = document.getElementById('image_holder');
+        var myImage = myDiv.children[0];
+        linkElement.href = myImage.src;
+    }
+</script>
 
 <script src="do.js" type="text/javascript"></script>
 <script src="sjcl.js" type="text/javascript"></script>
