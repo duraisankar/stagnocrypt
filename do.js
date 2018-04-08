@@ -79,7 +79,27 @@ var encode = function() {
     ctx.putImageData(imgData, 0, 0);
 
 
-    alert('Done! When the image appears, save and share it with someone.');
+   // alert('Done! When the image appears, save and share it with someone.');
+
+    toastr.options = {
+        "closeButton": true,
+        "debug": false,
+        "newestOnTop": true,
+        "progressBar": true,
+        "positionClass": "toast-top-right",
+        "preventDuplicates": false,
+        "onclick": null,
+        "showDuration": "300",
+        "hideDuration": "1000",
+        "timeOut": "5000",
+        "extendedTimeOut": "1000",
+        "showEasing": "swing",
+        "hideEasing": "linear",
+        "showMethod": "fadeIn",
+        "hideMethod": "fadeOut"
+    };
+
+    toastr.success("Image created. Click to download!", "success!");
     output.src = canvas.toDataURL();
 
 };
@@ -109,6 +129,26 @@ var decode = function() {
 
         if (obj.ct) {
             try {
+
+                toastr.options = {
+                    "closeButton": true,
+                    "debug": false,
+                    "newestOnTop": true,
+                    "progressBar": true,
+                    "positionClass": "toast-top-right",
+                    "preventDuplicates": false,
+                    "onclick": null,
+                    "showDuration": "300",
+                    "hideDuration": "1000",
+                    "timeOut": "5000",
+                    "extendedTimeOut": "1000",
+                    "showEasing": "swing",
+                    "hideEasing": "linear",
+                    "showMethod": "fadeIn",
+                    "hideMethod": "fadeOut"
+                };
+                toastr.success("Successfully decrpted", "success!");
+
                 obj.text = sjcl.decrypt(password, message);
             } catch (e) {
                 alert(passwordFail);
