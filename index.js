@@ -6,7 +6,7 @@ const url = require('url');
 var path= require('path')
 function boot() {
     win = new BrowserWindow({
-	width: 1000, height: 500,
+	width: 1100, height: 700,
         frame:false
 	})
     win.loadURL(url.format({
