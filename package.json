@@ -1,10 +1,10 @@
 {
-  "name": "Electron",
-  "productName": "Project APP",
+  "name": "Stagnocrypt",
+  "productName": "Stagnocrypt",
   "version": "1.0.0",
   "description": "testing electron app ",
   "main": "index.js",
-  "author": "tharun",
+  "author": "Durai Sankar",
   "license": "ISC",
   "devDependencies": {
     "electron": "^1.7.9",
