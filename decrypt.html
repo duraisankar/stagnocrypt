@@ -41,6 +41,8 @@
     <link href="assets/demo/demo3/base/style.bundle.css" rel="stylesheet" type="text/css"/>
     <!--end::Base Styles -->
     <link rel="shortcut icon" href="assets/demo/demo3/media/img/logo/favicon.ico"/>
+
+
 </head>
 <!-- end::Head -->
 <!-- end::Body -->
@@ -85,6 +87,12 @@
                     </button>
                     <div id="m_header_menu"
                          class="m-header-menu m-aside-header-menu-mobile m-aside-header-menu-mobile--offcanvas  m-header-menu--skin-light m-header-menu--submenu-skin-light m-aside-header-menu-mobile--skin-dark m-aside-header-menu-mobile--submenu-skin-dark ">
+                        <ul class="m-menu__nav  m-menu__nav--submenu-arrow ">
+                            <li class="m-menu__item  m-menu__item--submenu m-menu__item--rel" aria-haspopup="true">
+                                <h3>Decrypt Image</h3>
+                            </li>
+                        </ul>
+
                     </div>
                     <!-- END: Horizontal Menu -->                                <!-- BEGIN: Topbar -->
                     <div id="m_header_topbar" class="m-topbar  m-stack m-stack--ver m-stack--general">
@@ -162,71 +170,106 @@
             <!-- END: Subheader -->
             <div class="m-content">
 
-                <div class="m-portlet">
-                    <div class="m-portlet__head">
-                        <div class="m-portlet__head-caption">
-                            <div class="m-portlet__head-title">
-                                <h3 class="m-portlet__head-text">
-                                    Stagnography
-                                </h3>
-                            </div>
-                        </div>
-                    </div>
-                        <div class="m-portlet__body">
-                            <div id='main' class='section dark'>
-                                <div class='step'>Choose an Encrypted image</div>
+                <div class="row">
 
-                                <div class='sectionbody'>
-                                    <input type="file" id="file" class="custom-file-inputed" >
+                    <div class="col-md-6">
+                        <div class="m-portlet">
+
+                            <div class="m-portlet__body">
+                                <div id='main'>
+
+                                    <div class="form-group m-form__group row">
+                                        <label class="col-form-label col-lg-3 col-sm-12">Select your image</label>
+                                        <div class="col-md-9 col-sm-12">
+                                            <div class="form-group m-form__group">
+                                                <div class="custom-file">
+                                                    <input type="file" class="custom-file-input" id="file">
+                                                    <label class="custom-file-label" >Choose file</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <img id='preview' width="300px" height="300px"
+                                         "/>
                                 </div>
-                                <img id='preview' class='preview hide' style="align-content: center; border-color:#dc2947 " />
-                            </div>
-                            <div id='choose' class='section dark hide'>
+                                <div id='choose'>
 
-                                <div class='sectionbody'>
-                                    <div class='left' style="visibility: hidden;">
+
+                                        <div  style="visibility: hidden;">
                 <textarea id='message' class='message' maxlength='1000'
-                          placeholder='Type hidden message' style="color: #fafafa; background-color: #333333;  "></textarea>
-                                        <input type='password' id='password' class='password'
-                                               placeholder='Password (optional)' style="color: #fafafa; background-color: #333333; "/>
+                          placeholder='Type hidden message'
+                          style="color: #fafafa; background-color: #333333;  "></textarea>
+                                            <input type='password' id='password' class='password'
+                                                   placeholder='Password (optional)'
+                                                   style="color: #fafafa; background-color: #333333; "/>
 
-                                        <button id='encode' class='submit' style="color: white; background-color: #dc2947; border : #dc2947; border-radius: 100px">Hide message</button>
-                                    </div>
-                                    <div class='centere' ><center>
-                                        <input type='password' id='password2' class='password'
-                                               placeholder='Password' style="color: #fafafa; background-color: #333333; " />
-                                        <button id='decode' class='button'  style="color: white; background-color: #dc2947; border : #dc2947; border-radius: 100px">Reveal message</button></center>
-                                    </div>
-                                </div>
-                            </div>
-                            <div id='reveal' class='section dark hide' style="display: inline-block;">
-                                <div class='step'>Hidden message</div>
-                                <div id='messageDecoded' class='sectionbody'></div>
-                            </div>
-                            <canvas id='canvas' class='hide' ></canvas>
+                                            <button id='encode' class='submit'
+                                                    style="color: white; background-color: #dc2947; border : #dc2947; border-radius: 100px">
+                                                Hide message
+                                            </button>
+                                        </div>
 
 
 
 
+                                    <div class="m-form">
+
+                                        <div class="form-group m-form__group">
+                                            <label class="form-control-label" for="password2">Password</label>
+                                            <input type="password" class="form-control form-control-success m-input" id="password2">
+                                            <span class="m-form__help">Enter the password to reveal it.</span>
+                                        </div>
 
 
-                        </div>
-
-                        <div class="m-portlet__foot m-portlet__foot--fit m--margin-top-40">
-                            <div class="m-form__actions">
-                                <div class="col-lg-4 m--align-right">
-
-                                    <button class="btn btn-primary btn-lg m-btn  m-btn m-btn--icon">
+                                        <button id="decode" class="btn btn-primary btn-md m-btn  m-btn m-btn--icon">
 									<span>
 										<i class="fa fa-archive"></i>
-										<span>Primary</span>
+										<span>decode</span>
 									</span>
-                                    </button>
+                                        </button>
+                                    </div>
+
                                 </div>
+
+
+
+                            </div>
+
+
+
+
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+
+
+                        <div class="m-portlet" id="reveal">
+                            <div class="m-portlet__head">
+                                <div class="m-portlet__head-caption">
+                                    <div class="m-portlet__head-title">
+						<span class="m-portlet__head-icon">
+							<i class="flaticon-multimedia"></i>
+						</span>
+                                        <h3 class="m-portlet__head-text">Your hidden text here
+                                        </h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="m-portlet__body">
+                                <div style="display: none;"> <canvas id='canvas' height="300px" width="300px"></canvas></div>
+
+                                <div id="messageDecoded" class="m-scrollable" data-scrollable="true" data-max-height="100" data-scrollbar-shown="true">
+                                                                   </div>
                             </div>
 
                         </div>
+                        <!--end::Portlet-->
 
+
+
+
+                    </div>
 
 
                 </div>
