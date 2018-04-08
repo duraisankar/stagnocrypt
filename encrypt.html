@@ -190,7 +190,6 @@
                                     </div>
                                 </div>
 
-                                <img id='preview' class='preview hide'/>
                                 <div id='choose'>
 
 
@@ -199,7 +198,7 @@
                                         <div class=" col-md-9 col-sm-12">
                                             <div class="form-group m-form__group">
                                                 <div></div>
-                                                <textarea class="form-control m-input" id="message" rows="3"></textarea>
+                                                <textarea class="form-control m-input" data-provide="markdown" id="message" rows="5"></textarea>
 
 
                                             </div>
@@ -239,12 +238,18 @@
                         <div class="m-portlet">
 
                             <div class="m-portlet__body">
+
+                                <h3>UPLOADED IMAGE</h3>
+                                <img id='preview' class='preview hide' width="300px" height="300px"/>
+
                                 <div id='reveal' class='section dark hide' style="display: none;">
                                     <div class='step'>Hidden message</div>
                                     <div id='messageDecoded' class='sectionbody'></div>
                                 </div>
+
+                                <H3>FINAL IMAGE</H3>
                                 <canvas id='canvas' style="display: none;"></canvas>
-                                <div id="image_holder" style="width: 200px; height: 200px; border-color: transparent;">
+                                <div id="image_holder" style="width: 300px; height: 300px; border-color: transparent;">
                                     <img id='output' style="width: inherit; height: inherit;"/>
                                 </div>
                                 <br>
