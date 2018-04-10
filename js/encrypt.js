@@ -76,6 +76,9 @@ var encode = function() {
 
 
     var imgData = ctx.getImageData(0, 0, ctx.canvas.width, ctx.canvas.height);
+
+    //alert(sjcl.hash.sha256.hash(password), message);
+
     encodeMessage(imgData.data, sjcl.hash.sha256.hash(password), message);
     ctx.putImageData(imgData, 0, 0);
 
@@ -102,7 +105,7 @@ var encode = function() {
 
     toastr.success("Image created. Click to download!", "success!");
     output.src = canvas.toDataURL();
-    $("#finish").modal();
+   // $("#finish").modal();
 
 
 

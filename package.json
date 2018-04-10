@@ -7,7 +7,7 @@
   "author": "Durai Sankar",
   "license": "ISC",
   "devDependencies": {
-    "electron": "^1.7.9",
+    "electron": "^1.8.4",
     "electron-packager": "^8.7.2",
     "electron-winstaller": "^2.6.3",
     "webpack": "^4.5.0"
