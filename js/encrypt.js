@@ -40,7 +40,6 @@ var importImage = function(e) {
             ctx.canvas.height = img.height;
             ctx.drawImage(img, 0, 0);
 
-            decode();
         };
         img.src = event.target.result;
     };
@@ -105,7 +104,7 @@ var encode = function() {
 
     toastr.success("Image created. Click to download!", "success!");
     output.src = canvas.toDataURL();
-   // $("#finish").modal();
+    $("#finish").modal();
 
 
 
