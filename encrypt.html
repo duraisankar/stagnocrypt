@@ -29,6 +29,24 @@
             }
         });
     </script>
+    <script>
+        var keylist="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+~`|}{[]\:;?><,./-='";
+
+        var temp="";
+
+        function generatepass(plength) {
+            temp="";
+
+            for (i=0; i<plength;i++)
+                temp+=keylist.charAt(Math.floor(Math.random()*keylist.length))
+            return temp
+        }
+
+        function populateform() {
+            document.getElementById('password').value = generatepass(32)
+        }
+    </script>
+
 
     <style>
         ::-webkit-scrollbar {
@@ -179,7 +197,7 @@
 									</span>
                         </a>
                     </li>
-                    b
+
 
                 </ul>
             </div>
@@ -241,11 +259,13 @@
                                     <div class="form-group m-form__group row">
                                         <label class="col-form-label col-lg-3 col-sm-12">Password</label>
                                         <div class=" col-md-9 col-sm-12">
-                                            <div class="m-input-icon m-input-icon--left">
-                                                <input type="password" class="form-control m-input" id="password"
-                                                       placeholder="optional">
-                                                <span class="m-input-icon__icon m-input-icon__icon--left"><span><i
-                                                        class="fa fa-unlock-alt"></i></span></span>
+                                            <div class="form-group m-form__group">
+                                                <div class="input-group">
+                                                    <input type="text" class="form-control" id="password" placeholder="Optional">
+                                                    <div class="input-group-append">
+                                                        <button class="btn btn-success" type="button" value="Generate Password " onClick="populateform()">Generate Password</button>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
