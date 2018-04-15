@@ -236,13 +236,18 @@
 
                         <div class="col-md-4" style="padding-bottom: 40px">
                             <div style="height: 100px">
-                                Hidden bits:
-                                <span id="bitsdisplay">1</span>
+
+                                <span id="bitsdisplay"></span>
 
 
 
-                                <div id="bits" style="margin-top: 10px; width: 300px"></div>
-                                <button class="btn btn-default" style="margin-top: 10px" id="downloadbutton">Download Full-size Image</button>
+                                <div id="bits" style=" width: 300px"></div>
+                                <button class="btn btn-info m-btn m-btn--icon m-btn--wide"  id="downloadbutton">
+                                    <span>
+										<i class="la la-download"></i>
+										<span>Download Full-size Image</span>
+									</span>
+                                    </button>
                             </div>
 
                             <canvas style="border: solid 1px black" width="250" height="250" id="outputcanvas"></canvas>
@@ -265,9 +270,11 @@
 
                         <div class="col-md-4" style="padding-bottom: 40px">
                             <div style="height: 100px">
-                                Hidden bits:
-                                <span id="unhidebitsdisplay">1</span><div id="bits2" style="margin-top: 10px; width: 300px"></div>
-                                <button class="btn btn-default" style="margin-top: 10px" id="downloadbutton2">Download Full-size Image</button>
+                                <span id="unhidebitsdisplay"></span><div id="bits2" style=" width: 300px"></div>
+                                <button class="btn btn-warning m-btn m-btn--icon m-btn--wide" id="downloadbutton2"><span>
+										<i class="la la-folder"></i>
+										<span>Download Full-size Image</span>
+									</span></button>
                             </div>
 
                             <canvas style="border: solid 1px black" width="250" height="250" id="hiddencanvas"></canvas>
