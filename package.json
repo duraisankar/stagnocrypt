@@ -2,22 +2,26 @@
   "name": "Stagnocrypt",
   "productName": "Stagnocrypt",
   "version": "1.0.0",
-  "description": "testing electron app ",
+  "description": "Safe secured transmission ",
   "main": "index.js",
   "author": "Durai Sankar",
   "license": "ISC",
   "devDependencies": {
     "electron": "^1.8.4",
+    "electron-builder": "^20.8.1",
     "electron-packager": "^8.7.2"
-
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "electron .",
-    "build": "electron-packager . --out=dist/win --platform=win32 --arch=x64 --icon=icon.ico --asar=true --overwrite"
-
+    "dist": "build"
   },
-  "dependencies": {
-    "electron": "^1.8.4"
+
+  "build": {
+  "appId": "com.kadibu.stagnocrypt",
+  "win": {
+    "target": "nsis",
+    "icon": "icon.ico"
   }
+}
 }
