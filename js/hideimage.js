@@ -324,6 +324,7 @@ function hideImage() {
 
 // hides secretdata into coverdata
 function doHideImage(coverdata, secretdata, bits) {
+    var bits=3;
     var coverpix = coverdata.data;
     var secretpix = secretdata.data;
 
@@ -358,6 +359,8 @@ function doHideImage(coverdata, secretdata, bits) {
 }
 
 function doUnhideImage(stegdata, bits) {
+    var bits=3;
+
     var stegpix = stegdata.data;
 
     var w = stegdata.width;
