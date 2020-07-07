@@ -7,7 +7,7 @@
   "author": "Durai Sankar",
   "license": "ISC",
   "devDependencies": {
-    "electron": "^1.8.4",
+    "electron": "^9.1.0",
     "electron-builder": "^20.8.1",
     "electron-packager": "^8.7.2"
   },
